@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2014/08/07 20:53:36.000.368,=C:\Users\xxx\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/08/08 03:05:56.000.845,=C:\Users\xxx\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/08/08 03:24:54.000.348,E:\Delphi\Anti Reversi-muti platform\main.fmx=C:\Users\xxx\Documents\RAD Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2014/08/08 03:24:54.000.348,E:\Delphi\Anti Reversi-muti platform\main.pas=C:\Users\xxx\Documents\RAD Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2014/08/08 03:26:02.000.150,E:\Delphi\Anti Reversi-muti platform\Anti_Reversi.dproj=C:\Users\xxx\Documents\RAD Studio\Projects\Project1.dproj</Transaction>
+  </Transactions>
+	<MobileDevice>06557e71f0ea40d0</MobileDevice>
+	<BT_BuildType>Debug</BT_BuildType>
+</BorlandProject>
