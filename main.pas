@@ -146,6 +146,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    Button4: TButton;
     procedure LangButtonClick(Sender: TObject);
     procedure CNRadioButtonChange(Sender: TObject);
     procedure TWRadioButtonChange(Sender: TObject);
@@ -166,6 +167,7 @@ type
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
     procedure FormResize(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
   private
     initboard,board:Tboard;
     Redlist,Blacklist,templist:TStringList;
@@ -581,6 +583,12 @@ end;
 procedure TForm1.Button3Click(Sender: TObject);
 begin
    Panel3.Visible := False;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+begin
+  ShowMessage('This program is GNU 3 or later version license.'+ #13+
+  'Help and support in https://github.com/sum2012/anti-Reversi-delphi-Android');
 end;
 
 procedure TForm1.TWRadioButtonChange(Sender: TObject);
