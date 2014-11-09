@@ -1516,7 +1516,7 @@ begin
 //   a:=minMaxStart(Aboard,ComputerIsRed,Realdepth,thinkstep)
 // else
 // Optimization Endgamedepth
-    if (Realdepth = Endgamedepth) or (Realdepth +1 = Endgamedepth) then
+    if (Realdepth = Endgamedepth) or (Realdepth +1 = Endgamedepth) or (Realdepth +2 = Endgamedepth) then
         a:=minMaxEndgame1OPT(Aboard,ComputerIsRed,Realdepth,thinkstep)
     else
         a:=minMaxRandom(Aboard,ComputerIsRed,Realdepth,thinkstep);
