@@ -1,4 +1,4 @@
-{
+ï»¿{
    This file is part of Sum GNU Anti reversi program.
 
     Sum GNU Anti reversi is free software: you can redistribute it and/or modify
@@ -187,7 +187,8 @@ type
     function MinMaxRandom(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
     function EvaluateScore(const Aboard:Tboard;const SideIsRed:Boolean):Integer;
     function MinMax(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
-    function minMaxEndgameOPT(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
+    function minMaxEndgame1OPT(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
+    function minMaxEndgame2OPT(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
     procedure InitHumanFirst;
     procedure InitComputerFirst;
     { Private declarations }
@@ -1477,7 +1478,7 @@ begin
   Application.ProcessMessages;
 //  StopThinkButton.Enabled:=True;
 // http://blog.csdn.net/nowcan/archive/2004/10/19/142994.aspx
-// ÆäŒËùÓĞ‘ğĞg¶¼ÊÇœpµÍŒ¦·½ĞĞ„ÓÁ¦,×îáá±ÆŒ¦·½ĞĞËÀÎ».
+// å…¶å¯¦æ‰€æœ‰æˆ°è¡“éƒ½æ˜¯æ¸›ä½å°æ–¹è¡Œå‹•åŠ›,æœ€å¾Œé€¼å°æ–¹è¡Œæ­»ä½.
 {
   if ComputerIsRed = true then
       MakeRedMove(Aboard,templist)
@@ -1492,7 +1493,7 @@ begin
 //  if a+b + Realdepth then
 //    Realdepth:= strToint(Nornaldepth.Text);
 
-  if a+b + Realdepth > 64 then
+  if a+b + Realdepth >= 64 then
     Realdepth:= 64-a-b
   else
     Realdepth:= Nornaldepth;
@@ -1515,8 +1516,8 @@ begin
 //   a:=minMaxStart(Aboard,ComputerIsRed,Realdepth,thinkstep)
 // else
 // Optimization Endgamedepth
-    if (a+b + Endgamedepth = 64) or (a+b + Endgamedepth+1 = 64) then
-        a:=minMaxEndgameOPT(Aboard,ComputerIsRed,Realdepth,thinkstep)
+    if (Realdepth = Endgamedepth) or (Realdepth +1 = Endgamedepth) then
+        a:=minMaxEndgame1OPT(Aboard,ComputerIsRed,Realdepth,thinkstep)
     else
         a:=minMaxRandom(Aboard,ComputerIsRed,Realdepth,thinkstep);
     // Todo Use another ProgressBar
@@ -1559,9 +1560,9 @@ function TForm1.ThinkNumber(Aboard:Tboard;SideIsRed:Boolean;depth:integer):integ
 var a,b:integer;templist:tstringlist;tempboard:Tboard;
 //var a,b,c,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;sameboard:boolean;
 begin
-//Ò»°ãíÕf£¬ß@ÑeÓĞÒ»‚€ÅĞ”àÆå¾ÖÊÇ·ñ½YÊøµÄº¯”µ£¬
-//Ò»µ©Æå¾Ö½YÊø¾Í²»±ØÀ^ÀmËÑË÷ÁË£¬Ö±½Ó·µ»Ø˜OÖµ¡£
-//µ«ÓÉì¶ºÚ°×Æå²»´æÔÚÖĞÍ¾½YÊøµÄÇé›r£¬¹ÊÊ¡ÂÔ¡£
+//ä¸€èˆ¬ä¾†èªªï¼Œé€™è£¡æœ‰ä¸€å€‹åˆ¤æ–·æ£‹å±€æ˜¯å¦çµæŸçš„å‡½æ•¸ï¼Œ
+//ä¸€æ—¦æ£‹å±€çµæŸå°±ä¸å¿…ç¹¼çºŒæœç´¢äº†ï¼Œç›´æ¥è¿”å›æ¥µå€¼ã€‚
+//ä½†ç”±æ–¼é»‘ç™½æ£‹ä¸å­˜åœ¨ä¸­é€”çµæŸçš„æƒ…æ³ï¼Œæ•…çœç•¥ã€‚
   result:=0;
   templist := tstringlist.Create;
   Application.ProcessMessages;
@@ -1588,15 +1589,15 @@ begin
     }
   end;
 
-  if (depth<=0) or (a+b>63) then //È~×Ó¹üc
+  if (depth<=0) or (a+b>63) then //è‘‰å­ç¯€é»
   begin
-//    result:= EvaluateScore(Aboard,SideIsRed);//Ö±½Ó·µ»ØŒ¦¾ÖÃæµÄ¹ÀÖµ
+//    result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
     exit;
   end;
 
 
-//    bestvalue:=-INF;//³õÊ¼×î¼ÑÖµÔOéØ“Ÿo¸F
-  //Éú³É×ß·¨
+//    bestvalue:=-INF;//åˆå§‹æœ€ä½³å€¼è¨­ç‚ºè² ç„¡çª®
+  //ç”Ÿæˆèµ°æ³•
 
   if SideIsRed Then
     MakeRedMove(Aboard,templist)
@@ -1614,13 +1615,13 @@ begin
     begin
       templist.Free;
 
-//      result:= EvaluateScore(Aboard,SideIsRed);//Ö±½Ó·µ»ØŒ¦¾ÖÃæµÄ¹ÀÖµ
+//      result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
         result:=1;
       exit;
     end;
 
 
-//      result := -MinMax(Aboard,Not SideIsRed,depth);//);//ËÑË÷×Ó¹üc£¬×¢ÒâÇ°ÃæµÄØ“Ì–
+//      result := -MinMax(Aboard,Not SideIsRed,depth);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
       result:=1;
       templist.Free;
       exit;
@@ -1638,15 +1639,15 @@ begin
   tempboard:=Aboard;
   For a:= 0 to templist.Count-1 do
   begin
-  // ×ßÒ»²½Æå;//
-  //¾ÖÃæaboard ëSÖ®¸Ä×ƒ
+  // èµ°ä¸€æ­¥æ£‹;//
+  //å±€é¢aboard éš¨ä¹‹æ”¹è®Š
     Aboard:=tempboard;
     if SideIsRed Then
      RedboardUpdate(Aboard,strToint(templist[a]))
     else
       BlackboardUpdate(aboard,strToint(templist[a]));
     result:=result+ThinkNumber(Aboard,Not SideIsRed,depth-1);
-//    value:= -MinMax(Aboard,Not SideIsRed,depth-1);//);//ËÑË÷×Ó¹üc£¬×¢ÒâÇ°ÃæµÄØ“Ì–
+//    value:= -MinMax(Aboard,Not SideIsRed,depth-1);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
     end;
 //      if value > bestvalue then
 //        bestvalue:=value;
@@ -1658,9 +1659,9 @@ end;
 function TForm1.MinMaxRandom(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
 var a,b,c,d,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;oldaithinkstep:string;aithinksteplist:Tstringlist;//var a,b,c,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;sameboard:boolean;
 begin
-//Ò»°ãíÕf£¬ß@ÑeÓĞÒ»‚€ÅĞ”àÆå¾ÖÊÇ·ñ½YÊøµÄº¯”µ£¬
-//Ò»µ©Æå¾Ö½YÊø¾Í²»±ØÀ^ÀmËÑË÷ÁË£¬Ö±½Ó·µ»Ø˜OÖµ¡£
-//µ«ÓÉì¶ºÚ°×Æå²»´æÔÚÖĞÍ¾½YÊøµÄÇé›r£¬¹ÊÊ¡ÂÔ¡£
+//ä¸€èˆ¬ä¾†èªªï¼Œé€™è£¡æœ‰ä¸€å€‹åˆ¤æ–·æ£‹å±€æ˜¯å¦çµæŸçš„å‡½æ•¸ï¼Œ
+//ä¸€æ—¦æ£‹å±€çµæŸå°±ä¸å¿…ç¹¼çºŒæœç´¢äº†ï¼Œç›´æ¥è¿”å›æ¥µå€¼ã€‚
+//ä½†ç”±æ–¼é»‘ç™½æ£‹ä¸å­˜åœ¨ä¸­é€”çµæŸçš„æƒ…æ³ï¼Œæ•…çœç•¥ã€‚
   Application.ProcessMessages;
 //  bestaithinkstep:=aithinkstep;
   Score(Aboard,a,b);
@@ -1680,17 +1681,17 @@ begin
       result:= 2000;
     exit;
   end;
-  if (depth<=0) or (a+b>63) then //È~×Ó¹üc
+  if (depth<=0) or (a+b>63) then //è‘‰å­ç¯€é»
   begin
-      result:= EvaluateScore(Aboard,SideIsRed);//Ö±½Ó·µ»ØŒ¦¾ÖÃæµÄ¹ÀÖµ
+      result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
     exit;
   end;
     templist := Tstringlist.Create;
 //  if SideIsRed then
-    bestvalue:=-INF;//³õÊ¼×î¼ÑÖµÔOéØ“Ÿo¸F
+    bestvalue:=-INF;//åˆå§‹æœ€ä½³å€¼è¨­ç‚ºè² ç„¡çª®
 //  else
 //    bestvalue:=INF;
-  //Éú³É×ß·¨
+  //ç”Ÿæˆèµ°æ³•
 //  templist:=tstringlist.Create;
   if SideIsRed Then
 //    templist:=MakeRedMoveAI(Aboard)
@@ -1709,10 +1710,10 @@ begin
     begin
       templist.Free;
 //      result:=0;
-        result:= EvaluateScore(Aboard,SideIsRed);//Ö±½Ó·µ»ØŒ¦¾ÖÃæµÄ¹ÀÖµ
+        result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
       exit;
     end;
-    result := -MinMax(Aboard,Not SideIsRed,depth,aithinkstep);//);//ËÑË÷×Ó¹üc£¬×¢ÒâÇ°ÃæµÄØ“Ì–
+    result := -MinMax(Aboard,Not SideIsRed,depth,aithinkstep);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
 //    if a+ b < 40 then
 //      result := result + 100;
     templist.Free;
@@ -1734,14 +1735,14 @@ begin
       c:=8;
        end;
     aithinkstep := intTostr(c)+','+intTostr(b);
-  // ×ßÒ»²½Æå;//
-  //¾ÖÃæaboard ëSÖ®¸Ä×ƒ
+  // èµ°ä¸€æ­¥æ£‹;//
+  //å±€é¢aboard éš¨ä¹‹æ”¹è®Š
     Aboard:=tempboard;
     if SideIsRed Then
      RedboardUpdate(Aboard,strToint(templist[a]))
     else
       BlackboardUpdate(aboard,strToint(templist[a]));
-    value:= -MinMax(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//ËÑË÷×Ó¹üc£¬×¢ÒâÇ°ÃæµÄØ“Ì–
+    value:= -MinMax(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
 
 //    if depth = Realdepth-1 then
 //      ProgressBar1.StepIt;
@@ -1828,9 +1829,9 @@ function TForm1.MinMax(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithink
 var a,b,c,d,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;oldaithinkstep,bestaithinkstep:string;
 //var a,b,c,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;sameboard:boolean;
 begin
-//Ò»°ãíÕf£¬ß@ÑeÓĞÒ»‚€ÅĞ”àÆå¾ÖÊÇ·ñ½YÊøµÄº¯”µ£¬
-//Ò»µ©Æå¾Ö½YÊø¾Í²»±ØÀ^ÀmËÑË÷ÁË£¬Ö±½Ó·µ»Ø˜OÖµ¡£
-//µ«ÓÉì¶ºÚ°×Æå²»´æÔÚÖĞÍ¾½YÊøµÄÇé›r£¬¹ÊÊ¡ÂÔ¡£
+//ä¸€èˆ¬ä¾†èªªï¼Œé€™è£¡æœ‰ä¸€å€‹åˆ¤æ–·æ£‹å±€æ˜¯å¦çµæŸçš„å‡½æ•¸ï¼Œ
+//ä¸€æ—¦æ£‹å±€çµæŸå°±ä¸å¿…ç¹¼çºŒæœç´¢äº†ï¼Œç›´æ¥è¿”å›æ¥µå€¼ã€‚
+//ä½†ç”±æ–¼é»‘ç™½æ£‹ä¸å­˜åœ¨ä¸­é€”çµæŸçš„æƒ…æ³ï¼Œæ•…çœç•¥ã€‚
   Application.ProcessMessages;
   bestaithinkstep:=aithinkstep;
   Score(Aboard,a,b);
@@ -1850,17 +1851,17 @@ begin
       result:= 2000;
     exit;
   end;
-  if (depth<=0) or (a+b>63) then //or StopThink then //È~×Ó¹üc
+  if (depth<=0) or (a+b>63) then //or StopThink then //è‘‰å­ç¯€é»
   begin
-    result:= EvaluateScore(Aboard,SideIsRed);//Ö±½Ó·µ»ØŒ¦¾ÖÃæµÄ¹ÀÖµ
+    result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
     exit;
   end;
     templist := Tstringlist.Create;
 //  if SideIsRed then
-    bestvalue:=-INF;//³õÊ¼×î¼ÑÖµÔOéØ“Ÿo¸F
+    bestvalue:=-INF;//åˆå§‹æœ€ä½³å€¼è¨­ç‚ºè² ç„¡çª®
 //  else
 //    bestvalue:=INF;
-  //Éú³É×ß·¨
+  //ç”Ÿæˆèµ°æ³•
 //  templist:=tstringlist.Create;
   if SideIsRed Then
 //    templist:=MakeRedMoveAI(Aboard)
@@ -1878,11 +1879,11 @@ begin
     begin
       templist.Free;
 //      result:=0;
-      result:= EvaluateScore(Aboard,SideIsRed);//Ö±½Ó·µ»ØŒ¦¾ÖÃæµÄ¹ÀÖµ
+      result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
       exit;
     end;
     aithinkstep := aithinkstep +'->PASS';
-    result := -MinMax(Aboard,Not SideIsRed,depth,aithinkstep);//);//ËÑË÷×Ó¹üc£¬×¢ÒâÇ°ÃæµÄØ“Ì–
+    result := -MinMax(Aboard,Not SideIsRed,depth,aithinkstep);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
 //    if a+ b < 40 then
 //      result := result + 100;
     templist.Free;
@@ -1903,14 +1904,14 @@ begin
       c:=8;
        end;
     aithinkstep := aithinkstep+'->'+intTostr(c)+','+intTostr(b);
-  // ×ßÒ»²½Æå;//
-  //¾ÖÃæaboard ëSÖ®¸Ä×ƒ
+  // èµ°ä¸€æ­¥æ£‹;//
+  //å±€é¢aboard éš¨ä¹‹æ”¹è®Š
     Aboard:=tempboard;
     if SideIsRed Then
      RedboardUpdate(Aboard,strToint(templist[a]))
     else
       BlackboardUpdate(aboard,strToint(templist[a]));
-    value:= -MinMax(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//ËÑË÷×Ó¹üc£¬×¢ÒâÇ°ÃæµÄØ“Ì–
+    value:= -MinMax(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
 
 //    if depth = Realdepth-1 then
 //      ProgressBar1.StepIt;
@@ -1926,12 +1927,12 @@ begin
   Result:= bestvalue;
 end;
 
-function TForm1.minMaxEndgameOPT(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
+function TForm1.minMaxEndgame1OPT(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
 var a,b,c,d,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;oldaithinkstep:string;aithinksteplist:Tstringlist;//var a,b,c,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;sameboard:boolean;
 begin
-//Ò»°ãíÕf£¬ß@ÑeÓĞÒ»‚€ÅĞ”àÆå¾ÖÊÇ·ñ½YÊøµÄº¯”µ£¬
-//Ò»µ©Æå¾Ö½YÊø¾Í²»±ØÀ^ÀmËÑË÷ÁË£¬Ö±½Ó·µ»Ø˜OÖµ¡£
-//µ«ÓÉì¶ºÚ°×Æå²»´æÔÚÖĞÍ¾½YÊøµÄÇé›r£¬¹ÊÊ¡ÂÔ¡£
+//ä¸€èˆ¬ä¾†èªªï¼Œé€™è£¡æœ‰ä¸€å€‹åˆ¤æ–·æ£‹å±€æ˜¯å¦çµæŸçš„å‡½æ•¸ï¼Œ
+//ä¸€æ—¦æ£‹å±€çµæŸå°±ä¸å¿…ç¹¼çºŒæœç´¢äº†ï¼Œç›´æ¥è¿”å›æ¥µå€¼ã€‚
+//ä½†ç”±æ–¼é»‘ç™½æ£‹ä¸å­˜åœ¨ä¸­é€”çµæŸçš„æƒ…æ³ï¼Œæ•…çœç•¥ã€‚
 // This function is only calculation win
   Application.ProcessMessages;
 //  bestaithinkstep:=aithinkstep;
@@ -1952,17 +1953,17 @@ begin
       result:= 2000;
     exit;
   end;
-  if (depth<=0) or (a+b>63) then //È~×Ó¹üc
+  if (depth<=0) or (a+b>63) then //è‘‰å­ç¯€é»
   begin
-      result:= EvaluateScore(Aboard,SideIsRed);//Ö±½Ó·µ»ØŒ¦¾ÖÃæµÄ¹ÀÖµ
+      result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
     exit;
   end;
     templist := Tstringlist.Create;
 //  if SideIsRed then
-    bestvalue:=-INF;//³õÊ¼×î¼ÑÖµÔOéØ“Ÿo¸F
+    bestvalue:=-INF;//åˆå§‹æœ€ä½³å€¼è¨­ç‚ºè² ç„¡çª®
 //  else
 //    bestvalue:=INF;
-  //Éú³É×ß·¨
+  //ç”Ÿæˆèµ°æ³•
 //  templist:=tstringlist.Create;
   if SideIsRed Then
 //    templist:=MakeRedMoveAI(Aboard)
@@ -1981,10 +1982,10 @@ begin
     begin
       templist.Free;
 //      result:=0;
-        result:= EvaluateScore(Aboard,SideIsRed);//Ö±½Ó·µ»ØŒ¦¾ÖÃæµÄ¹ÀÖµ
+        result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
       exit;
     end;
-    result := -MinMax(Aboard,Not SideIsRed,depth,aithinkstep);//);//ËÑË÷×Ó¹üc£¬×¢ÒâÇ°ÃæµÄØ“Ì–
+    result := -MinMax(Aboard,Not SideIsRed,depth,aithinkstep);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
 //    if a+ b < 40 then
 //      result := result + 100;
     templist.Free;
@@ -2006,14 +2007,14 @@ begin
       c:=8;
        end;
     aithinkstep := intTostr(c)+','+intTostr(b);
-  // ×ßÒ»²½Æå;//
-  //¾ÖÃæaboard ëSÖ®¸Ä×ƒ
+  // èµ°ä¸€æ­¥æ£‹;//
+  //å±€é¢aboard éš¨ä¹‹æ”¹è®Š
     Aboard:=tempboard;
     if SideIsRed Then
      RedboardUpdate(Aboard,strToint(templist[a]))
     else
       BlackboardUpdate(aboard,strToint(templist[a]));
-    value:= -MinMax(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//ËÑË÷×Ó¹üc£¬×¢ÒâÇ°ÃæµÄØ“Ì–
+    value:= -minMaxEndgame2OPT(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
 
 //    if depth = Realdepth-1 then
 //      ProgressBar1.StepIt;
@@ -2042,10 +2043,9 @@ begin
 //        bestaithinkstep := aithinkstep;
         aithinksteplist.Clear;
         aithinksteplist.Add(aithinkstep);
-
+        if value > 0 then
+           break;
       end;
-      if bestvalue > 0 then
-      break;
     end;
   b:=Random(aithinksteplist.Count);
   AiMovelist := inttostr(8*strtoint(copy(aithinksteplist[b],3,1))+strtoint(copy(aithinksteplist[b],1,1))-8) + ' '+inttostr(bestvalue);
@@ -2056,5 +2056,108 @@ begin
   aithinksteplist.Free;
 end;
 
+function TForm1.minMaxEndgame2OPT(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
+var a,b,c,d,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;oldaithinkstep,bestaithinkstep:string;
+//var a,b,c,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;sameboard:boolean;
+begin
+//ä¸€èˆ¬ä¾†èªªï¼Œé€™è£¡æœ‰ä¸€å€‹åˆ¤æ–·æ£‹å±€æ˜¯å¦çµæŸçš„å‡½æ•¸ï¼Œ
+//ä¸€æ—¦æ£‹å±€çµæŸå°±ä¸å¿…ç¹¼çºŒæœç´¢äº†ï¼Œç›´æ¥è¿”å›æ¥µå€¼ã€‚
+//ä½†ç”±æ–¼é»‘ç™½æ£‹ä¸å­˜åœ¨ä¸­é€”çµæŸçš„æƒ…æ³ï¼Œæ•…çœç•¥ã€‚
+  Application.ProcessMessages;
+  bestaithinkstep:=aithinkstep;
+  Score(Aboard,a,b);
+  if a = 0 then
+  begin
+    if SideIsRed then
+      result:= 2000
+    else
+      result:= -2000;
+    exit;
+  end;
+  if b = 0 then
+  begin
+    if SideIsRed then
+      result:= -2000
+    else
+      result:= 2000;
+    exit;
+  end;
+  if (depth<=0) or (a+b>63) then //or StopThink then //è‘‰å­ç¯€é»
+  begin
+    result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
+    exit;
+  end;
+    templist := Tstringlist.Create;
+//  if SideIsRed then
+    bestvalue:=-INF;//åˆå§‹æœ€ä½³å€¼è¨­ç‚ºè² ç„¡çª®
+//  else
+//    bestvalue:=INF;
+  //ç”Ÿæˆèµ°æ³•
+//  templist:=tstringlist.Create;
+  if SideIsRed Then
+//    templist:=MakeRedMoveAI(Aboard)
+    MakeRedMove(Aboard,templist)
+  else
+//    templist:=MakeBlackMoveAI(Aboard);
+    MakeBlackMove(Aboard,templist);
+  if templist.Count = 0 then
+  begin
+    if SideIsRed Then
+      MakeBlackMove(Aboard,templist)
+    else
+      MakeRedMove(Aboard,templist);
+    if templist.Count = 0 then // both red and black no move
+    begin
+      templist.Free;
+//      result:=0;
+      result:= EvaluateScore(Aboard,SideIsRed);//ç›´æ¥è¿”å›å°å±€é¢çš„ä¼°å€¼
+      exit;
+    end;
+    aithinkstep := aithinkstep +'->PASS';
+    result := -MinMax(Aboard,Not SideIsRed,depth,aithinkstep);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
+//    if a+ b < 40 then
+//      result := result + 100;
+    templist.Free;
+    exit;
+  end;
+  tempboard:=Aboard;
+  oldaithinkstep :=aithinkstep;
+  For a:= 0 to templist.Count-1 do
+  begin
+    Application.ProcessMessages;
+    aithinkstep := oldaithinkstep;
+      d:= strtoint(templist[a]);
+      b:= d div 8 +1 ;
+      c:= d mod 8;
+      if c = 0 then
+       begin
+      b:=b-1;
+      c:=8;
+       end;
+    aithinkstep := aithinkstep+'->'+intTostr(c)+','+intTostr(b);
+  // èµ°ä¸€æ­¥æ£‹;//
+  //å±€é¢aboard éš¨ä¹‹æ”¹è®Š
+    Aboard:=tempboard;
+    if SideIsRed Then
+     RedboardUpdate(Aboard,strToint(templist[a]))
+    else
+      BlackboardUpdate(aboard,strToint(templist[a]));
+    value:= -MinMax(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//æœç´¢å­ç¯€é»ï¼Œæ³¨æ„å‰é¢çš„è² è™Ÿ
+
+//    if depth = Realdepth-1 then
+//      ProgressBar1.StepIt;
+
+      if value > bestvalue then
+      begin
+        bestvalue:=value;
+        bestaithinkstep := aithinkstep;
+        if value > 0 then
+          break;
+      end;
+    end;
+  templist.Free;
+  aithinkstep :=bestaithinkstep;
+  Result:= bestvalue;
+end;
 
 end.
