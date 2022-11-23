@@ -22,7 +22,7 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Layouts, FMX.ListBox, FMX.Objects, FMX.Edit
+  FMX.Layouts, FMX.ListBox, FMX.Objects, FMX.Edit, FMX.Controls.Presentation
   {$IFDEF ANDROID}
    ,FMX.Platform.Android;
   {$ENDIF}
@@ -174,6 +174,7 @@ type
     RedNoMove,BlackNoMove:Boolean;
     AiMovelist:string;
     RealDepth:integer;
+
     Nornaldepth,Endgamedepth:integer;
     procedure Score(const Aboard:Tboard;var RedScore,BlackScore:integer);
     procedure RedBoardUpdate(var Aboard:Tboard;LastChess:Integer);
@@ -187,8 +188,10 @@ type
     function MinMaxRandom(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
     function EvaluateScore(const Aboard:Tboard;const SideIsRed:Boolean):Integer;
     function MinMax(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
+    function MinMaxStart(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
     function minMaxEndgame1OPT(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
     function minMaxEndgame2OPT(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
+    Procedure Scoresort(var scorelist:Tstringlist;var stepno:Tstringlist);
     procedure InitHumanFirst;
     procedure InitComputerFirst;
     { Private declarations }
@@ -592,6 +595,8 @@ begin
   ShowMessage('This program is GNU 3 or later version license.'+ #13+
   'Help and support in https://github.com/sum2012/anti-Reversi-delphi-Android');
 end;
+
+
 
 procedure TForm1.TWRadioButtonChange(Sender: TObject);
 begin
@@ -1516,8 +1521,10 @@ begin
 //   a:=minMaxStart(Aboard,ComputerIsRed,Realdepth,thinkstep)
 // else
 // Optimization Endgamedepth
-    if (Realdepth = Endgamedepth) or (Realdepth +1 = Endgamedepth) or (Realdepth +2 = Endgamedepth) then
+    if (Realdepth = Endgamedepth) or (Realdepth +1 = Endgamedepth) then
         a:=minMaxEndgame1OPT(Aboard,ComputerIsRed,Realdepth,thinkstep)
+    else if ((Realdepth >= 3) and (Realdepth < 7)) then
+        a:=minMaxStart(Aboard,ComputerIsRed,Realdepth,thinkstep)
     else
         a:=minMaxRandom(Aboard,ComputerIsRed,Realdepth,thinkstep);
     // Todo Use another ProgressBar
@@ -2160,4 +2167,196 @@ begin
   Result:= bestvalue;
 end;
 
+function TForm1.MinMaxStart(Aboard:Tboard;SideIsRed:Boolean;depth:integer;var aithinkstep:string):integer;
+var a,b,c,d,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;scorelist,steplist:Tstringlist;aithinksteplist:Tstringlist;//bestaithinkstep:string;
+//var a,b,c,bestvalue, value:integer;templist:tstringlist;tempboard:Tboard;sameboard:boolean;
+begin
+//一般來說，這裡有一個判斷棋局是否結束的函數，
+//一旦棋局結束就不必繼續搜索了，直接返回極值。
+//但由於黑白棋不存在中途結束的情況，故省略。
+  Application.ProcessMessages;
+  Score(Aboard,a,b);
+  if a = 0 then
+  begin
+    if SideIsRed then
+      result:= 2000
+    else
+      result:= -2000;
+    exit;
+  end;
+  if b = 0 then
+  begin
+    if SideIsRed then
+      result:= -2000
+    else
+      result:= 2000;
+    exit;
+  end;
+  if (depth<=0) or (a+b>63) then //葉子節點
+  begin
+    result:= EvaluateScore(Aboard,SideIsRed);//直接返回對局面的估值
+    exit;
+  end;
+//  if SideIsRed then
+    bestvalue:=-INF;//初始最佳值設為負無窮
+//  else
+//    bestvalue:=INF;
+  //生成走法
+  templist:=tstringlist.Create;
+  if SideIsRed Then
+//    templist:=MakeRedMoveAI(Aboard)
+    MakeRedMove(Aboard,templist)
+  else
+//    templist:=MakeBlackMoveAI(Aboard);
+    MakeBlackMove(Aboard,templist);
+  if templist.Count = 0 then
+  begin
+    if SideIsRed Then
+      MakeBlackMove(Aboard,templist)
+    else
+      MakeRedMove(Aboard,templist);
+
+    if templist.Count = 0 then // both red and black no move
+    begin
+      templist.Free;
+//      result:=0;
+      result:= EvaluateScore(Aboard,SideIsRed);//直接返回對局面的估值
+      exit;
+    end;
+//    templist.Free;
+//    if a + b > 63 then begin
+//      result:= -EvaluateScore(Aboard,not SideIsRed);
+//      exit;
+//    end
+//    else begin
+      result := -MinMaxStart(Aboard,Not SideIsRed,depth,aithinkstep);//);//搜索子節點，注意前面的負號
+ //     result := -MinMaxSecond(Aboard,Not SideIsRed,depth);//);//搜索子節點，注意前面的負號
+//      if a+ b < 40 then
+//        result := result + 100;
+      templist.Free;
+      exit;
+  end;
+  tempboard:=Aboard;
+  scorelist := Tstringlist.Create;
+  steplist := Tstringlist.Create;
+  For a:= 0 to templist.Count-1 do
+  begin
+    Application.ProcessMessages;
+    aithinkstep:='';
+  // 走一步棋;//
+  //局面aboard 隨之改變
+    Aboard:=tempboard;
+  steplist.Add(templist[a]);
+    if SideIsRed Then
+     RedboardUpdate(Aboard,strToint(templist[a]))
+    else
+      BlackboardUpdate(aboard,strToint(templist[a]));
+    value:= -MinMax(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//搜索子節點，注意前面的負號
+    scorelist.add(inttostr(value));
+
+   end;
+   Scoresort(scorelist,steplist);
+   aithinksteplist:=Tstringlist.Create;
+//   for a := scorelist.Count div 2 to scorelist.Count do
+     // ProgressBar1.StepIt;// need modied
+   For a:=0 to  scorelist.count div 2 do //need modied
+   begin
+  // 走一步棋;//
+  //局面aboard 隨之改變
+
+    Aboard:=tempboard;
+    aithinkstep:='';
+        d:= strtoint(steplist[a]);
+      b:= d div 8 +1 ;
+      c:= d mod 8;
+      if c = 0 then
+        begin
+      b:=b-1;
+      c:=8;
+       end;
+     aithinkstep := intTostr(c)+','+intTostr(b) ;
+
+    if SideIsRed Then
+     RedboardUpdate(Aboard,strToint(steplist[a]))
+    else
+      BlackboardUpdate(aboard,strToint(steplist[a]));
+
+    value:= -MinMax(Aboard,Not SideIsRed,depth-1,aithinkstep);//);//搜索子節點，注意前面的負號
+
+//    Aboard:=Tempboard;//撤銷剛才的一步;//恢復局面
+
+// for display move value need modied;
+      d:= strtoint(steplist[a]);
+      b:= d div 8 +1 ;
+      c:= d mod 8;
+      if c = 0 then
+        begin
+      b:=b-1;
+      c:=8;
+       end;
+      AiListBox.items.Add(intTostr(c)+','+intTostr(b)+' '+intTostr(value));
+      if value = bestvalue then
+        aithinksteplist.Add(aithinkstep)
+      else if value > bestvalue then
+      begin
+        aimovelist:=steplist[a]+' '+intTostr(value);
+        aithinksteplist.Clear;
+// support random best move
+        aithinksteplist.Add(aithinkstep);
+//        bestaithinkstep:=aithinkstep;
+
+// end of display value
+//    if sideIsRed then
+//    begin
+//      if value > bestvalue then
+//      begin
+        bestvalue:=value;
+//        if depth = Realdepth then
+//        aimovelist.Add(templist[a]+' '+intTostr(value));
+       end;
+//      end;
+    end;
+{
+    else begin
+      if value < bestvalue then
+      begin
+        bestvalue:=value;
+        if depth = Realdepth then
+          aimovelist.Add(templist[a]+' '+intTostr(value));
+      end;
+    end;
+  end;
+  }
+  b:=Random(aithinksteplist.Count);
+  AiMovelist := inttostr(8*strtoint(copy(aithinksteplist[b],3,1))+strtoint(copy(aithinksteplist[b],1,1))-8) + ' '+inttostr(bestvalue);
+  aithinkstep := aithinksteplist[b];
+  Result:= bestvalue;
+//  aithinkstep:=bestaithinkstep;
+  scorelist.free;
+  steplist.free;
+  templist.Free;
+  aithinksteplist.free;
+end;
+
+Procedure TForm1.Scoresort(var scorelist:Tstringlist;var stepno:Tstringlist);
+var a,b:string;c,d:integer;
+begin
+   for d:= 1 to stepno.count-1 do
+   begin
+   for c:= 1 to stepno.count-1 do
+   begin
+     if strtoint(scorelist[c]) > strtoint(scorelist[c-1]) then
+     begin
+      a:= scorelist[c-1];
+      b:= stepno[c-1];
+      scorelist[c-1]:=  scorelist[c];
+      stepno[c-1]:=  stepno[c];
+      scorelist[c] := a;
+      stepno[c] := b;
+     end;
+  end;
+ end;
+
+
+end;
 end.

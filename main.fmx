@@ -10,121 +10,127 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnResize = FormResize
-  DesignerMobile = True
-  DesignerWidth = 360
-  DesignerHeight = 592
-  DesignerDeviceName = 'Google Nexus 5'
-  DesignerOrientation = 0
-  DesignerOSVersion = ''
+  DesignerMasterStyle = 3
   object Label1: TLabel
-    Height = 23.000000000000000000
     Position.X = 88.000000000000000000
     Position.Y = 24.000000000000000000
+    Size.Width = 329.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
     Text = 'Sum Gnu Anti Reversi'
-    Width = 329.000000000000000000
   end
   object ToolBar1: TToolBar
     Align = Bottom
-    Height = 48.000000000000000000
     Position.Y = 519.000000000000000000
+    Size.Width = 360.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 1
-    Width = 360.000000000000000000
     object NewButton: TButton
       Align = Left
-      Height = 48.000000000000000000
       Margins.Left = 5.000000000000000000
       Position.X = 5.000000000000000000
+      Size.Width = 60.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 0
       Text = 'New'
-      Width = 60.000000000000000000
       OnClick = NewButtonClick
     end
     object DepthButton: TButton
       Align = Left
       ClipChildren = True
-      Height = 48.000000000000000000
       Margins.Left = 5.000000000000000000
       Position.X = 70.000000000000000000
+      Size.Width = 67.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 3
       Text = 'Depth'
-      Width = 67.000000000000000000
       OnClick = DepthButtonClick
     end
     object LangButton: TButton
       Align = Left
-      Height = 48.000000000000000000
       Margins.Left = 5.000000000000000000
       Position.X = 142.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 2
       Text = 'Lang'
-      Width = 73.000000000000000000
       OnClick = LangButtonClick
     end
     object CloseButton: TButton
       Align = Left
-      Height = 48.000000000000000000
       Margins.Left = 5.000000000000000000
       Position.X = 220.000000000000000000
+      Size.Width = 73.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 1
       Text = 'Close'
-      Width = 73.000000000000000000
       OnClick = CloseButtonClick
     end
     object Button4: TButton
-      Height = 49.000000000000000000
       Position.X = 296.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 5
       Text = 'Help'
-      Width = 57.000000000000000000
       OnClick = Button4Click
     end
   end
   object Panel1: TPanel
-    DesignVisible = False
-    Height = 153.000000000000000000
     Position.X = 24.000000000000000000
     Position.Y = 352.000000000000000000
+    Size.Width = 193.000000000000000000
+    Size.Height = 153.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 193.000000000000000000
     TabOrder = 2
     object ENRadioButton: TRadioButton
       GroupName = 'LangGroup'
-      Height = 23.000000000000000000
       IsChecked = True
       Position.X = 24.000000000000000000
       Position.Y = 8.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 0
       Text = 'English'
-      Width = 137.000000000000000000
       OnChange = ENRadioButtonChange
     end
     object CNRadioButton: TRadioButton
       GroupName = 'LangGroup'
-      Height = 23.000000000000000000
       Position.X = 24.000000000000000000
       Position.Y = 40.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 1
       Text = #31616#20307#20013#25991
-      Width = 137.000000000000000000
       OnChange = CNRadioButtonChange
     end
     object TWRadioButton: TRadioButton
       GroupName = 'LangGroup'
-      Height = 23.000000000000000000
       Position.X = 24.000000000000000000
       Position.Y = 72.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 2
       Text = #32321#20307#20013#25991
-      Width = 137.000000000000000000
       OnChange = TWRadioButtonChange
     end
     object Button2: TButton
-      Height = 44.000000000000000000
       Position.X = 24.000000000000000000
       Position.Y = 104.000000000000000000
+      Size.Width = 129.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 4
       Text = 'Close Menu'
-      Width = 129.000000000000000000
       OnClick = Button2Click
     end
   end
@@ -180,10 +186,11 @@ object Form1: TForm1
           10E20040880300210E0084380010E20040880300FF59EB2FFFE698D500FBAE78
           0000000049454E44AE426082}
       end>
-    Height = 217.000000000000000000
     Position.X = 48.000000000000000000
     Position.Y = 63.000000000000000000
-    Width = 262.000000000000000000
+    Size.Width = 262.000000000000000000
+    Size.Height = 217.000000000000000000
+    Size.PlatformDefault = False
   end
   object Chess1: TImage
     MultiResBitmap = <
@@ -258,11 +265,12 @@ object Form1: TForm1
           408DEE2BF0BFA1232FBAFF5AFF03FFD37AC08045FE0256EE2157BA2151090000
           000049454E44AE426082}
       end>
-    Height = 29.000000000000000000
     Position.X = 112.000000000000000000
     Position.Y = 200.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 29.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 33.000000000000000000
   end
   object Chess2: TImage
     MultiResBitmap = <
@@ -335,11 +343,12 @@ object Form1: TForm1
           E3815A1D09B0D5D5E31D94A95FD1EBEF3075B9E5EC1087D09102FF171A7BD1FD
           DF7A0AFCB8F584018BFC0B1177D2EC66E324BE0000000049454E44AE426082}
       end>
-    Height = 29.000000000000000000
     Position.X = 168.000000000000000000
     Position.Y = 200.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 29.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 33.000000000000000000
   end
   object BlackChess: TImage
     MultiResBitmap = <
@@ -359,11 +368,12 @@ object Form1: TForm1
           A59D86D64DC40AC3086D381A604E80B02E23B44BDEBE222FCE1136AFE72090D4
           0000000049454E44AE426082}
       end>
-    Height = 29.000000000000000000
     Position.X = 216.000000000000000000
     Position.Y = 200.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 29.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 33.000000000000000000
     OnClick = BlackChessClick
   end
   object RedChess: TImage
@@ -384,716 +394,781 @@ object Form1: TForm1
           B6C67C2A8F6950C544CC3080A0AAAD51CC0C90AC8B086A917FDF102E55A541AF
           B688BAB10000000049454E44AE426082}
       end>
-    Height = 29.000000000000000000
     Position.X = 256.000000000000000000
     Position.Y = 200.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 29.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 33.000000000000000000
     OnClick = RedChessClick
   end
   object Image1: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 51.000000000000000000
     Position.Y = 68.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image2: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 83.000000000000000000
     Position.Y = 68.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image3: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 68.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image4: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 147.000000000000000000
     Position.Y = 68.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image5: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 179.000000000000000000
     Position.Y = 68.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image6: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 211.000000000000000000
     Position.Y = 68.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image7: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 243.000000000000000000
     Position.Y = 68.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image8: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 277.000000000000000000
     Position.Y = 68.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image9: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 51.000000000000000000
     Position.Y = 96.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image10: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 83.000000000000000000
     Position.Y = 96.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image11: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 96.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image12: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 147.000000000000000000
     Position.Y = 96.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image13: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 179.000000000000000000
     Position.Y = 96.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image14: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 211.000000000000000000
     Position.Y = 96.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image15: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 243.000000000000000000
     Position.Y = 96.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image16: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 277.000000000000000000
     Position.Y = 96.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image17: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 51.000000000000000000
     Position.Y = 121.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image18: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 83.000000000000000000
     Position.Y = 121.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image19: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 121.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image20: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 147.000000000000000000
     Position.Y = 121.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image21: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 179.000000000000000000
     Position.Y = 121.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image22: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 211.000000000000000000
     Position.Y = 121.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image23: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 243.000000000000000000
     Position.Y = 121.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image24: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 277.000000000000000000
     Position.Y = 121.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image25: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 51.000000000000000000
     Position.Y = 147.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image26: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 83.000000000000000000
     Position.Y = 147.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image27: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 147.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image28: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 147.000000000000000000
     Position.Y = 147.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image29: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 179.000000000000000000
     Position.Y = 147.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image30: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 211.000000000000000000
     Position.Y = 147.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image31: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 243.000000000000000000
     Position.Y = 147.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image32: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 277.000000000000000000
     Position.Y = 147.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image33: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 51.000000000000000000
     Position.Y = 172.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image34: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 83.000000000000000000
     Position.Y = 172.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image35: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 172.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image36: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 147.000000000000000000
     Position.Y = 172.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image37: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 179.000000000000000000
     Position.Y = 172.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image38: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 211.000000000000000000
     Position.Y = 172.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image39: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 243.000000000000000000
     Position.Y = 172.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image40: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 277.000000000000000000
     Position.Y = 172.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image41: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 51.000000000000000000
     Position.Y = 198.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image42: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 83.000000000000000000
     Position.Y = 198.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image43: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 198.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image44: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 147.000000000000000000
     Position.Y = 198.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image45: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 179.000000000000000000
     Position.Y = 198.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image46: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 211.000000000000000000
     Position.Y = 198.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image47: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 243.000000000000000000
     Position.Y = 198.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image48: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 277.000000000000000000
     Position.Y = 198.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image49: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 51.000000000000000000
     Position.Y = 222.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image50: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 83.000000000000000000
     Position.Y = 222.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image51: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 222.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image52: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 147.000000000000000000
     Position.Y = 222.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image53: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 179.000000000000000000
     Position.Y = 222.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image54: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 211.000000000000000000
     Position.Y = 222.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image55: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 243.000000000000000000
     Position.Y = 222.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image56: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 277.000000000000000000
     Position.Y = 222.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image57: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 51.000000000000000000
     Position.Y = 249.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image58: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 83.000000000000000000
     Position.Y = 249.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image59: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 116.000000000000000000
     Position.Y = 249.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image60: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 147.000000000000000000
     Position.Y = 249.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image61: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 179.000000000000000000
     Position.Y = 249.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image62: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 211.000000000000000000
     Position.Y = 249.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image63: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 243.000000000000000000
     Position.Y = 249.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object Image64: TImage
     MultiResBitmap = <
       item
       end>
-    Height = 27.000000000000000000
     Position.X = 277.000000000000000000
     Position.Y = 249.000000000000000000
     Scale.X = 0.800000011920929000
     Scale.Y = 0.800000011920929000
-    Width = 33.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
   end
   object ChessBGImage: TImage
     MultiResBitmap = <
@@ -1110,176 +1185,196 @@ object Form1: TForm1
           B05FBF73841C2147C81172841C2147C81172841C2147C8117284868C2417EE49
           03B7E515292C0000000049454E44AE426082}
       end>
-    Height = 29.000000000000000000
     Position.X = 312.000000000000000000
     Position.Y = 200.000000000000000000
+    Size.Width = 33.000000000000000000
+    Size.Height = 29.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 33.000000000000000000
     OnClick = RedChessClick
   end
   object StepListBox: TListBox
-    DesignVisible = False
-    Height = 137.000000000000000000
     Position.X = 192.000000000000000000
     Position.Y = 183.000000000000000000
+    Size.Width = 137.000000000000000000
+    Size.Height = 137.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 9
     Visible = False
-    Width = 137.000000000000000000
+    DisableFocusEffect = True
     DefaultItemStyles.ItemStyle = 'listboxitemnodetail'
     DefaultItemStyles.GroupHeaderStyle = ''
     DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 137.000000000000000000
+    Viewport.Height = 137.000000000000000000
   end
   object Panel2: TPanel
-    DesignVisible = False
-    Height = 152.000000000000000000
     Position.X = 32.000000000000000000
     Position.Y = 352.000000000000000000
+    Size.Width = 201.000000000000000000
+    Size.Height = 152.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 201.000000000000000000
     TabOrder = 13
     object NewGameButton: TButton
-      Height = 44.000000000000000000
       Position.X = 16.000000000000000000
       Position.Y = 56.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 3
       Text = 'New game'
-      Width = 113.000000000000000000
       OnClick = NewGameButtonClick
     end
     object ComputerVsHuman: TRadioButton
       GroupName = 'NewGameGroup'
-      Height = 23.000000000000000000
       Position.X = 16.000000000000000000
       Position.Y = 32.000000000000000000
+      Size.Width = 193.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 5
       Text = 'Computer Vs Human'
-      Width = 193.000000000000000000
     end
     object HumanVsComputer: TRadioButton
       GroupName = 'NewGameGroup'
-      Height = 23.000000000000000000
       IsChecked = True
       Position.X = 16.000000000000000000
       Position.Y = 1.000000000000000000
+      Size.Width = 193.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 6
       Text = 'Human Vs Computer'
-      Width = 193.000000000000000000
     end
     object Button1: TButton
-      Height = 44.000000000000000000
       Position.X = 16.000000000000000000
       Position.Y = 104.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 8
       Text = 'Close Menu'
-      Width = 113.000000000000000000
       OnClick = Button1Click
     end
   end
   object AiListBox: TListBox
-    DesignVisible = False
-    Height = 113.000000000000000000
     Position.X = 208.000000000000000000
     Position.Y = 352.000000000000000000
+    Size.Width = 129.000000000000000000
+    Size.Height = 113.000000000000000000
+    Size.PlatformDefault = False
     TabOrder = 17
     Visible = False
-    Width = 129.000000000000000000
+    DisableFocusEffect = True
     DefaultItemStyles.ItemStyle = 'listboxitemnodetail'
     DefaultItemStyles.GroupHeaderStyle = ''
     DefaultItemStyles.GroupFooterStyle = ''
+    Viewport.Width = 129.000000000000000000
+    Viewport.Height = 113.000000000000000000
   end
   object Panel3: TPanel
     ClipParent = True
-    DesignVisible = False
-    Height = 153.000000000000000000
     Position.X = 16.000000000000000000
     Position.Y = 352.000000000000000000
+    Size.Width = 313.000000000000000000
+    Size.Height = 153.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 313.000000000000000000
     TabOrder = 18
     object Label2: TLabel
-      Height = 23.000000000000000000
       Position.X = 8.000000000000000000
       Position.Y = -5.000000000000000000
+      Size.Width = 121.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       Text = 'Normal depth'
-      Width = 121.000000000000000000
     end
     object Label3: TLabel
-      Height = 23.000000000000000000
       Position.X = 176.000000000000000000
       Position.Y = -5.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       Text = 'Endgame depth'
-      Width = 137.000000000000000000
     end
     object NormalDepth2: TRadioButton
       AutoTranslate = False
       GroupName = 'NornalDepthGroup'
-      Height = 23.000000000000000000
       Position.X = 16.000000000000000000
       Position.Y = 26.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 4
       Text = '2'
-      Width = 57.000000000000000000
       OnChange = NormalDepth2Change
     end
     object NormalDepth3: TRadioButton
       GroupName = 'NornalDepthGroup'
-      Height = 23.000000000000000000
       IsChecked = True
       Position.X = 16.000000000000000000
       Position.Y = 51.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 3
       Text = '3'
-      Width = 57.000000000000000000
       OnChange = NormalDepth2Change
     end
     object NormalDepth4: TRadioButton
       GroupName = 'NornalDepthGroup'
-      Height = 23.000000000000000000
       Position.X = 16.000000000000000000
       Position.Y = 75.000000000000000000
+      Size.Width = 57.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 2
       Text = '4'
-      Width = 57.000000000000000000
       OnChange = NormalDepth2Change
     end
     object EndgameDepth7: TRadioButton
       GroupName = 'EndgamedepthGroup'
-      Height = 23.000000000000000000
       Position.X = 192.000000000000000000
       Position.Y = 27.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 5
       Text = '7'
-      Width = 65.000000000000000000
       OnChange = EndgameDepth7Change
     end
     object EndgameDepth8: TRadioButton
       GroupName = 'EndgamedepthGroup'
-      Height = 23.000000000000000000
       Position.X = 192.000000000000000000
       Position.Y = 51.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 7
       Text = '8'
-      Width = 65.000000000000000000
       OnChange = EndgameDepth7Change
     end
     object EndgameDepth9: TRadioButton
       GroupName = 'EndgamedepthGroup'
-      Height = 23.000000000000000000
       IsChecked = True
       Position.X = 192.000000000000000000
       Position.Y = 75.000000000000000000
+      Size.Width = 65.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 6
       Text = '9'
-      Width = 65.000000000000000000
       OnChange = EndgameDepth7Change
     end
     object Button3: TButton
-      Height = 44.000000000000000000
       Position.X = 16.000000000000000000
       Position.Y = 96.000000000000000000
+      Size.Width = 137.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
       TabOrder = 9
       Text = 'Close Menu'
-      Width = 137.000000000000000000
       OnClick = Button3Click
     end
   end
@@ -1288,30 +1383,33 @@ object Form1: TForm1
     TabOrder = 22
     Position.X = 56.000000000000000000
     Position.Y = 239.000000000000000000
-    Width = 281.000000000000000000
-    Height = 32.000000000000000000
+    Size.Width = 281.000000000000000000
+    Size.Height = 32.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
   end
   object AIDisplayScoreLabel: TLabel
-    Height = 23.000000000000000000
     Position.X = 32.000000000000000000
     Position.Y = 287.000000000000000000
+    Size.Width = 82.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
     Visible = False
-    Width = 82.000000000000000000
   end
   object Label4: TLabel
-    Height = 23.000000000000000000
     Position.X = 272.000000000000000000
     Position.Y = 24.000000000000000000
-    Text = 'v0.03'
-    Width = 82.000000000000000000
+    Size.Width = 82.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'v0.05'
   end
   object Lang1: TLang
     Lang = 'zh'
     Left = 264
     Top = 384
     ResourcesBin = {
-      A2000000530075006D00200047006E007500200041006E007400690020005200
+      A8000000530075006D00200047006E007500200041006E007400690020005200
       6500760065007200730069000D000A004E00650077000D000A00440065007000
       740068000D000A0043006C006F00730065000D000A004E006500770020006700
       61006D0065000D000A0043006F006D0070007500740065007200200056007300
@@ -1321,75 +1419,117 @@ object Form1: TForm1
       2000640065007000740068000D000A00490066002000730068006F0077002000
       6E006F00200072006500730070006F006E00730065002C0063006C0069006300
       6B00200077006100690074000D000A0043006C006F007300650020004D006500
-      6E0075000D000A00030000000200000065006E006A010000530075006D002000
-      47006E007500200041006E007400690020005200650076006500720073006900
-      3D00530075006D00200047006E007500200041006E0074006900200052006500
-      760065007200730069000D000A004E00650077003D004E00650077000D000A00
-      440065007000740068003D00440065007000740068000D000A0043006C006F00
-      730065003D0043006C006F00730065000D000A004E0065007700200067006100
-      6D0065003D004E00650077002000670061006D0065000D000A0043006F006D00
-      700075007400650072002000560073002000480075006D0061006E003D004300
-      6F006D00700075007400650072002000560073002000480075006D0061006E00
-      0D000A00480075006D0061006E00200056007300200043006F006D0070007500
-      7400650072003D00480075006D0061006E00200056007300200043006F006D00
-      700075007400650072000D000A004E006F0072006D0061006C00200064006500
-      7000740068003D004E006F0072006D0061006C00200064006500700074006800
-      0D000A0045006E006400670061006D0065002000640065007000740068003D00
-      45006E006400670061006D0065002000640065007000740068000D000A005200
-      650064002000770069006E003D005200650064002000770069006E000D000A00
-      42006C00610063006B002000770069006E003D0042006C00610063006B002000
-      770069006E000D000A0044007200610077003D0044007200610077000D000A00
-      490066002000730068006F00770020006E006F00200072006500730070006F00
-      6E00730065002C0063006C00690063006B00200077006100690074003D004900
-      66002000730068006F00770020006E006F00200072006500730070006F006E00
-      730065002C0063006C00690063006B00200077006100690074000D000A004300
-      6C006F007300650020004D0065006E0075003D0043006C006F00730065002000
-      4D0065006E0075000D000A000200000063006E002C010000530075006D002000
-      47006E007500200041006E007400690020005200650076006500720073006900
-      3D003F96EE68005F906EEA814067FB7F6C8FCB680D000A005200650064002000
-      770069006E003D00A27EDC800D000A0042006C00610063006B00200077006900
-      6E003D00D19EDC800D000A0044007200610077003D00735E4B620D000A004E00
-      650077003D00B065405C0D000A00440065007000740068003D00F16DA65E0D00
-      0A0043006C006F00730065003D007351ED950D000A004E006500770020006700
-      61006D0065003D00005FB065405C0D000A0043006F006D007000750074006500
-      72002000560073002000480075006D0061006E003D0035751181F95BBA4E0D00
-      0A00480075006D0061006E00200056007300200043006F006D00700075007400
-      650072003D00BA4EF95B357511810D000A004E006F0072006D0061006C002000
-      640065007000740068003D006E661A90F16DA65E0D000A0045006E0064006700
-      61006D0065002000640065007000740068003D008B6B405CF16DA65E0D000A00
-      490066002000730068006F00770020006E006F00200072006500730070006F00
-      6E00730065002C0063006C00690063006B00200077006100690074003D008259
-      9C673E663A79A16C0967CD53945E0CFF5553FB51497B855F0D000A0043006C00
-      6F007300650020004D0065006E0075003D007351ED95DC8355530D000A004200
+      6E0075000D000A00480065006C0070000D000A00030000000200000065006E00
+      82020000530075006D00200047006E007500200041006E007400690020005200
+      6500760065007200730069003D00530075006D00200047006E00750020004100
+      6E0074006900200052006500760065007200730069000D000A004E0065007700
+      3D004E00650077000D000A00440065007000740068003D004400650070007400
+      68000D000A0043006C006F00730065003D0043006C006F00730065000D000A00
+      4E00650077002000670061006D0065003D004E00650077002000670061006D00
+      65000D000A0043006F006D007000750074006500720020005600730020004800
+      75006D0061006E003D0043006F006D0070007500740065007200200056007300
+      2000480075006D0061006E000D000A00480075006D0061006E00200056007300
+      200043006F006D00700075007400650072003D00480075006D0061006E002000
+      56007300200043006F006D00700075007400650072000D000A004E006F007200
+      6D0061006C002000640065007000740068003D004E006F0072006D0061006C00
+      2000640065007000740068000D000A0045006E006400670061006D0065002000
+      640065007000740068003D0045006E006400670061006D006500200064006500
+      7000740068000D000A005200650064002000770069006E003D00520065006400
+      2000770069006E000D000A0042006C00610063006B002000770069006E003D00
+      42006C00610063006B002000770069006E000D000A0044007200610077003D00
+      44007200610077000D000A00490066002000730068006F00770020006E006F00
+      200072006500730070006F006E00730065002C0063006C00690063006B002000
+      77006100690074003D00490066002000730068006F00770020006E006F002000
+      72006500730070006F006E00730065002C0063006C00690063006B0020007700
+      6100690074000D000A0043006C006F007300650020004D0065006E0075003D00
+      43006C006F007300650020004D0065006E0075000D000A00480065006C007000
+      3D00480065006C0070000D000A0042006F007400680020006E006F0020006D00
+      6F007200650020006D006F00760065002C00660069006E006900730068002000
+      670061006D00650027002B002300310033002B00270044007200610077002700
+      3D0042006F007400680020006E006F0020006D006F007200650020006D006F00
+      760065002C00660069006E006900730068002000670061006D00650027002B00
+      2300310033002B002700440072006100770027000D000A0042006F0074006800
+      20006E006F0020006D006F007200650020006D006F00760065002C0066006900
+      6E006900730068002000670061006D00650027002B002300310033002B002700
+      42006C00610063006B002000770069006E003D0042006F007400680020006E00
+      6F0020006D006F007200650020006D006F00760065002C00660069006E006900
+      730068002000670061006D00650027002B002300310033002B00270042006C00
+      610063006B002000770069006E0027000D000A0042006F007400680020006E00
+      6F0020006D006F007200650020006D006F00760065002C00660069006E006900
+      730068002000670061006D00650027002B002300310033002B00270052006500
+      64002000770069006E003D0042006F007400680020006E006F0020006D006F00
+      7200650020006D006F00760065002C00660069006E0069007300680020006700
+      61006D00650027002B002300310033002B002700520065006400200077006900
+      6E0027000D000A000200000063006E00FF010000530075006D00200047006E00
+      7500200041006E0074006900200052006500760065007200730069003D003F96
+      EE68005F906EEA814067FB7F6C8FCB680D000A00520065006400200077006900
+      6E003D00A27EDC800D000A0042006C00610063006B002000770069006E003D00
+      D19EDC800D000A0044007200610077003D00735E4B620D000A004E0065007700
+      3D00B065405C0D000A00440065007000740068003D00F16DA65E0D000A004300
+      6C006F00730065003D007351ED950D000A004E00650077002000670061006D00
+      65003D00005FB065405C0D000A0043006F006D00700075007400650072002000
+      560073002000480075006D0061006E003D0035751181F95BBA4E0D000A004800
+      75006D0061006E00200056007300200043006F006D0070007500740065007200
+      3D00BA4EF95B357511810D000A004E006F0072006D0061006C00200064006500
+      7000740068003D006E661A90F16DA65E0D000A0045006E006400670061006D00
+      65002000640065007000740068003D008B6B405CF16DA65E0D000A0049006600
+      2000730068006F00770020006E006F00200072006500730070006F006E007300
+      65002C0063006C00690063006B00200077006100690074003D0082599C673E66
+      3A79A16C0967CD53945E0CFF5553FB51497B855F0D000A0043006C006F007300
+      650020004D0065006E0075003D007351ED95DC8355530D000A0042006F007400
+      680020006E006F0020006D006F007200650020006D006F00760065002C006600
+      69006E006900730068002000670061006D0065003D00660069006E0069007300
+      68005F0063006E000D000A00480065006C0070003D002E5EA9520D000A004200
       6F007400680020006E006F0020006D006F007200650020006D006F0076006500
-      2C00660069006E006900730068002000670061006D0065003D00660069006E00
-      6900730068005F0063006E000D000A0002000000740077003B01000053007500
-      6D00200047006E007500200041006E0074006900200052006500760065007200
-      730069003D003F96EE688B95906EEA81BA6BFB7F498FCB680D000A0052006500
-      64002000770069006E003D00057DDD520D000A0042006C00610063006B002000
-      770069006E003D00D19EDD520D000A0044007200610077003D00735E4B620D00
-      0A004E00650077003D00B065405C0D000A00440065007000740068003D00F16D
-      A65E0D000A0043006C006F00730065003D00DC9589950D000A004E0065007700
-      2000670061006D0065003D008B95B065405C0D000A0043006F006D0070007500
-      7400650072002000560073002000480075006D0061006E003D00FB9666810D5C
-      BA4E0D000A00480075006D0061006E00200056007300200043006F006D007000
-      75007400650072003D00BA4E0D5CFB9666810D000A004E006F0072006D006100
-      6C002000640065007000740068003D006E661A90F16DA65E0D000A0045006E00
-      6400670061006D0065002000640065007000740068003D00986B405CF16DA65E
-      0D000A00490066002000730068006F00770020006E006F002000720065007300
-      70006F006E00730065002C0063006C00690063006B0020007700610069007400
-      3D0082599C676F983A79926C0967CD53C9610CFFAE55CA64497B855F0D000A00
-      43006C006F007300650020004D0065006E0075003D00DC958995DC83AE550D00
+      2C00660069006E006900730068002000670061006D00650027002B0023003100
+      33002B002700440072006100770027003D00CC53B965FD900D4EA8520CFFD37E
+      5F67386E0F6227002B002300310033002B002700735E405C27000D000A004200
+      6F007400680020006E006F0020006D006F007200650020006D006F0076006500
+      2C00660069006E006900730068002000670061006D00650027002B0023003100
+      33002B0027005200650064002000770069006E003D00CC53B965FD90A16C0967
+      A8525C4F0CFFD37E5F67386E0F6227002B002300310033002B002700A27E628D
+      27000D000A0042006F007400680020006E006F0020006D006F00720065002000
+      6D006F00760065002C00660069006E006900730068002000670061006D006500
+      27002B002300310033002B00270042006C00610063006B002000770069006E00
+      3D00CC53B965FD90A16C0967A8525C4F0CFFD37E5F67386E0F6227002B002300
+      310033002B002700D19E628D27000D000A000200000074007700D80100005300
+      75006D00200047006E007500200041006E007400690020005200650076006500
+      7200730069003D003F96EE688B95906EEA81BA6BFB7F498FCB680D000A005200
+      650064002000770069006E003D00057DDD520D000A0042006C00610063006B00
+      2000770069006E003D00D19EDD520D000A0044007200610077003D00735E4B62
+      0D000A004E00650077003D00B065405C0D000A00440065007000740068003D00
+      F16DA65E0D000A0043006C006F00730065003D00DC9589950D000A004E006500
+      77002000670061006D0065003D008B95B065405C0D000A0043006F006D007000
+      75007400650072002000560073002000480075006D0061006E003D00FB966681
+      0D5CBA4E0D000A00480075006D0061006E00200056007300200043006F006D00
+      700075007400650072003D00BA4E0D5CFB9666810D000A004E006F0072006D00
+      61006C002000640065007000740068003D006E661A90F16DA65E0D000A004500
+      6E006400670061006D0065002000640065007000740068003D00986B405CF16D
+      A65E0D000A00490066002000730068006F00770020006E006F00200072006500
+      730070006F006E00730065002C0063006C00690063006B002000770061006900
+      74003D0082599C676F983A79926C0967CD53C9610CFFAE55CA64497B855F0D00
+      0A0043006C006F007300650020004D0065006E0075003D00DC958995DC83AE55
+      0D000A0042006F007400680020006E006F0020006D006F007200650020006D00
+      6F00760065002C00660069006E006900730068002000670061006D0065002700
+      2B002300310033002B0027005200650064002000770069006E003D00D996B965
+      FD90926C0967D5525C4F0CFF507D5F674A90326227002B002300310033002B00
+      2700057D0F8D27000D000A00480065006C0070003D006B5EA9520D000A004200
+      6F007400680020006E006F0020006D006F007200650020006D006F0076006500
+      2C00660069006E006900730068002000670061006D00650027002B0023003100
+      33002B002700440072006100770027003D00D996B965FD90926C0967D5525C4F
+      0CFF507D5F674A90326227002B002300310033002B002700735E405C27000D00
       0A0042006F007400680020006E006F0020006D006F007200650020006D006F00
       760065002C00660069006E006900730068002000670061006D00650027002B00
-      2300310033002B0027005200650064002000770069006E003D00520065006400
-      2000770069006E005F0063006E000D000A00}
+      2300310033002B00270042006C00610063006B002000770069006E003D00D996
+      B965FD90926C0967D5525C4F0CFF507D5F674A90326227002B00230031003300
+      2B002700D19E0F8D27000D000A00}
   end
   object Label5: TLabel
-    Height = 23.000000000000000000
     Position.X = 24.000000000000000000
     Position.Y = 295.000000000000000000
+    Size.Width = 297.000000000000000000
+    Size.Height = 23.000000000000000000
+    Size.PlatformDefault = False
     Text = 'If show no response,click wait'
-    Width = 297.000000000000000000
   end
 end
